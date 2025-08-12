@@ -1,0 +1,33 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import Optional
+
+app = FastAPI(title="AgriMind AI", description="Multilingual AI Agent for Smarter Farming Decisions")
+
+# Example input schema
+class Query(BaseModel):
+    question: str
+    language: Optional[str] = "en"
+
+@app.get("/")
+def root():
+    return {"message": "AgriMind AI Backend is running!"}
+
+@app.post("/ask")
+def ask_ai(query: Query):
+    # Mock AI response – replace with actual RAG/ML logic later
+    if "weather" in query.question.lower():
+        return {
+            "answer": "Rain is expected in your region in the next 3 days. Irrigation can be delayed.",
+            "language": query.language
+        }
+    elif "price" in query.question.lower():
+        return {
+            "answer": "Market price for wheat is ₹2,300/quintal this week.",
+            "language": query.language
+        }
+    else:
+        return {
+            "answer": f"Sorry, I don't have information for: {query.question}",
+            "language": query.language
+        }
