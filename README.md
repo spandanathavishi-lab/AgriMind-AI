@@ -30,3 +30,20 @@ app = FastAPI()
 @app.get("/")
 def root():
     return {"message": "AgriMind AI Backend Running"}
+
+
+
+
+
+**AgriMind-AI/
+│
+├── README.md               • Comprehensive project overview and instructions
+├── requirements.txt        • Dependencies required to run the app
+├── src/backend/main.py     • Working FastAPI backend
+├── data/
+│   └── datasets_list.md    • List of public datasets with links and citations
+├── docs/
+│   ├── architecture_diagram.png  • Visual architecture diagram
+│   └── pitch_presentation.pdf    • Your presentation slides
+└── LICENSE                 • Already present
+**
